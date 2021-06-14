@@ -1,0 +1,149 @@
+<resources>
+    <string name="app_name">Grow On Computer Institute</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="signin"><u>Sign in</u></string>
+
+    <string name="forgotpasssworddetails">Enter Your email address below and a password set up link will send to you shortly in your email</string>
+    <string name="signup"><u>Sign up</u></string>
+
+
+    <string name="placement">
+        ➡ ACCEL TRANSMATIC SYSTEMS Pvt Ltd <br></br>
+➡ ANGLES AGRO INDUSTRIES Ltd <br></br>
+➡ BENCH MARK INFOTECH Pvt Ltd<br></br>
+➡ PRAYAG GROUP<br></br>
+➡ COMPTECH SALES &amp; SERVICES Pvt Ltd<br></br>
+➡ CHIRAG COMPUTERS<br></br>
+➡ FIRST SOURCE<br></br>
+➡ DTDC Pvt Ltd<br></br>
+➡ N S B BPO Pvt Ltd<br></br>
+➡ PROSYS INFOSOLUTION<br></br>
+➡ SANTHALIA GROUP<br></br>
+➡ SOFTWARE HOUSE<br></br>
+➡ TRISITA SALES &amp; SERVICES<br></br>
+➡ TEAM GROUP<br></br>
+➡ TURTLE LTD<br></br>
+➡ RISHI INFOSYS<br></br>
+➡ VIJAY ELECKS CORPORATION<br></br>
+➡ WEB INFOTECH Pvt Ltd<br></br>
+➡ JAYCO EXPORTS Pvt LtD<br></br>
+➡ MAX MOBILITY Pvt Ltd<br></br>
+➡ IN SYNC TECH SOLUTION Ltd<br></br>
+➡ SWASTIK INFOTECH Ltd<br></br>
+➡ SECURE TECH SUPPORT PvT Ltd<br></br>
+➡ ROY ASSOCIATES<br></br>
+➡ NET LINK TECHNOLOGIES<br></br>
+➡ LALANI INFOTECH Ltd<br></br>
+INFOSILICATE SYSTEMS<br></br>
+DORADO INFOTECH Pvt Ltd<br></br>
+NET TRACK SOLUTIONS Pvt Ltd<br></br>
+NINE SIX THREE MARKETING Pvt Ltd<br></br>
+SHREE RAM PACKERS<br></br>
+VINAYAK INTERNATIONAL<br></br>
+C.M.S<br></br>
+TVSE SERVICE CENTRE<br></br>
+LG SERVICE CENTRE<br></br>
+C.M.I<br></br>
+JUPITER ELECTRONICS<br></br>
+PCS TECHNOLOGY<br></br>
+SYSTEM GRAPHICS<br></br>
+MILLENIUM COMOLITIVE PVT LTD.<br></br>
+STAR INFOTECH<br></br>
+VELOCITY COMPU SYSTEMS<br></br>
+IMPACT SYSTEMS<br></br>
+DATACON SYSTEMS &amp; SERVICES Pvt Ltd<br></br>
+TALLY SYSTEM &amp; SERVICES<br></br>
+R-WORLD<br></br>
+G.L.TECHNOLOGIES<br></br>
+SPENKO<br></br>
+NARGIS TEXTILE Pvt Ltd<br></br>
+BINARY SOLUTIONS Pvt Ltd<br></br>
+COMPUTER WORLD<br></br>
+ORIPLUS Pvt Ltd<br></br>
+BYTE TRACKS Pvt Ltd<br></br>
+ORLIVS Pvt LtD<br></br>
+HEMRAJ INDUSTRIES Pvt Ltd<br></br>
+D.K. MALLO &amp; ASSOCIATES<br></br>
+PIMT<br></br>
+HINDUSTAN CLUB Ltd<br></br>
+PARADIGM  INFOSYSTEM<br></br>
+SHIVAM INFOTECH<br></br>
+ENHIRA SOFTWARE<br></br>
+BAID POWER SYSTEMS Pvt Ltd<br></br>
+WORLD OF TECHNOLOGY<br></br>
+ADVANCE COMPUTER SOLUTION<br></br>
+ONTRACK SOLUTION<br></br>
+ORION CALL TECH<br></br>
+SILICON VALLEY SYSTEMS<br></br>
+GENERATION NEXT TECHNOLOGY<br></br>
+ANALOG &amp; DIGITAL SYSTEM<br></br>
+PROTECH COMPUTER<br></br>
+KSS PVT LTD<br></br>
+NIGAM COMPUTECH &amp; SERVICES LTD.<br></br>
+ULTRATECH CEMENT LTD.<br></br>
+BALAJI INFOTECH<br></br>
+TECHNOMACH<br></br>
+TECH DOMAIN<br></br>
+VISHNU SOLUTION<br></br>
+CLADIA CONSULTANT<br></br>
+LOGICA SYSTEMS<br></br>
+SHREE INFOTECH<br></br>
+SING SALES &amp; SERVICES<br></br>
+MANIPAL K-12 TECHNOLOGY<br></br>
+VIMAL &amp; CO.<br></br>
+VISHON COMPTECH Pvt Ltd<br></br>
+UNIVERSAL MARKETING ASSOCIATES<br></br>
+LOTTE COMPUTERS Pvt Ltd<br></br>
+APPONOMIC SYSTEMS<br></br>
+DOTCOM NETWORK SOLUTIONS<br></br>
+KONNECT SF Pvt Ltd<br></br>
+MICROTEL PVT LTD<br></br>
+STARLITE INDIAN Ltd<br></br>
+➡ RMAX Infosystems &amp; Consultancy Pvt.Ltd<br></br>
+➡ TECH MAHINDRA Ltd<br></br>
+➡ IBM<br></br>
+➡ Bagadia Systems Pvt. Ltd.<br></br>
+➡ Accord Infotech<br></br>
+➡ Bard Roy Infotech Pvt. Ltd.<br></br>
+➡ Delta Computer Services<br></br>
+➡ Chabria Infotech Pvt. Ltd.<br></br>
+➡ HCL Infotech Ltd.<br></br>
+➡ Gunjan Paper Industries Pvt Ltd.<br></br>
+➡ Happy-e-Zon Ltd.<br></br>
+➡ Elegance Infotech<br></br>
+➡ EPSON<br></br>
+➡ Dataman Infotech Pvt. Ltd.<br></br>
+➡ Comment Resources (P) Ltd.<br></br>
+➡ IDBI Bank<br></br>
+➡ Infinity Solution<br></br>
+➡ J. V. Retails Pvt. Ltd.<br></br>
+➡ Lalani Computer Academy<br></br>
+➡ Matrix Infosystems Ltd.Matrix Infosystems Ltd.<br></br>
+➡ NICCO Consultancy Pvt. Ltd.<br></br>
+➡ Odyssey Computer Services Pvt. Ltd.<br></br>
+➡ Pixel Infomatrix Pvt. Ltd.<br></br>
+➡ Sahara Computers<br></br>
+➡ Unicore Technologies<br></br>
+➡ Vishal Megha Mart<br></br>
+➡ Zenix Infotech<br></br>
+➡ Eastern Logica Infoway Ltd.<br></br>
+➡ Venus Softwares<br></br>
+➡ GODREJ SECURITY SOLUTION<br></br>
+➡ ELECTROMEDIA (I) PVT LTD<br></br>
+➡ CRYSTSL INFORMATICS &amp; SYSTEMS<br></br>
+    </string>
+
+
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_course"
+            android:icon="@drawable/ic_baseline_library_books_24"
+            android:title="Course &amp; Syllabus" />
+
+
+        <item
+            android:id="@+id/nav_exam"
+            android:icon="@drawable/ic_baseline_notes_24"
+            android:title="Placement" />
+
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Gallery" />
+
+
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/ic_baseline_info_24"
+            android:title="About Us" />
+
+
+        <item
+            android:id="@+id/nav_faq"
+            android:icon="@drawable/ic_baseline_question_answer_24"
+            android:title="FAQ" />
+
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_baseline_contact_phone_24"
+            android:title="Contact Us" />
+
+        <item
+            android:id="@+id/nav_developer"
+            android:icon="@drawable/ic_baseline_developer_mode_24"
+            android:title="Developer " />
+
+    </group>
+</menu>

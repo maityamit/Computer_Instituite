@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="growOnlearningInstituteitaberia.example.growonlearninginstitute.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="growOnlearningInstituteitaberia.example.growonlearninginstitute.ui.gallery.GalleryFragment"
+        android:label="Gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_about_us"
+        android:name="growOnlearningInstituteitaberia.example.growonlearninginstitute.ui.aboutus.AboutusFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_aboutus" />
+
+
+
+    <fragment
+        android:id="@+id/nav_contact"
+        android:name="growOnlearningInstituteitaberia.example.growonlearninginstitute.ui.contact.ContactFragment"
+        android:label="Contact Us"
+        tools:layout="@layout/fragment_contact" />
+
+    <fragment
+        android:id="@+id/nav_course"
+        android:name="growOnlearningInstituteitaberia.example.growonlearninginstitute.ui.course.CourseFragment"
+        android:label="Courses"
+        tools:layout="@layout/fragment_course" />
+
+    <fragment
+        android:id="@+id/nav_developer"
+        android:name="growOnlearningInstituteitaberia.example.growonlearninginstitute.ui.developer.DeveloperFragment"
+        android:label="Developer"
+        tools:layout="@layout/fragment_developer" />
+
+
+    <fragment
+        android:id="@+id/nav_exam"
+        android:name="growOnlearningInstituteitaberia.example.growonlearninginstitute.ui.exam.ExamFragment"
+        android:label="Placements"
+        tools:layout="@layout/fragment_exam" />
+
+    <fragment
+        android:id="@+id/nav_faq"
+        android:name="growOnlearningInstituteitaberia.example.growonlearninginstitute.ui.faq.FaqFragment"
+        android:label="FAQ"
+        tools:layout="@layout/fragment_faq" />
+
+
+
+</navigation>
