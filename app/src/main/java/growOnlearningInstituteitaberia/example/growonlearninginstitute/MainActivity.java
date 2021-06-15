@@ -3,10 +3,12 @@ package growOnlearningInstituteitaberia.example.growonlearninginstitute;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -17,6 +19,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
@@ -34,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     TextView User_name,User_Email;
     private DatabaseReference UserRef;
     private FirebaseAuth mAuth;
-    private String currentUserID;
+    private String currentUserID,Image_Link = "https://firebasestorage.googleapis.com/v0/b/grow-on-computer-center.appspot.com/o/profile%20(2).png?alt=media&token=28a91235-8196-478f-b570-574aed5c7de0";
     ImageView User_Image,Edit_Image;
 
     @SuppressLint("CutPasteId")
@@ -62,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,ChatListActivity.class);
                 intent.putExtra("Users","Teachers");
+                intent.putExtra("Image",Image_Link);
                 startActivity(intent);
             }
         });
@@ -86,12 +90,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
        UserRef.child ( currentUserID )
                 .addValueEventListener ( new ValueEventListener() {
                     @Override
@@ -100,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
                         String retrieveUserNAme = dataSnapshot.child ( "Name" ).getValue ().toString ();
                         String retrieveEmail = dataSnapshot.child ( "Email" ).getValue ().toString ();
                         String retrieveImage = dataSnapshot.child ( "Image" ).getValue ().toString ();
+
+                        Image_Link = retrieveImage;
 
                         User_name.setText(retrieveUserNAme);
                         User_Email.setText(retrieveEmail);
@@ -146,6 +146,57 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.action_my_profile:
+                Intent intentl2 = new Intent(MainActivity.this,ProfileActivity.class);
+                intentl2.putExtra("Users","Users");
+                startActivity(intentl2);
+                return true;
+
+            case R.id.action_faculty:
+                Toast.makeText(getApplicationContext(),"Item 2 Selected",Toast.LENGTH_LONG).show();
+                return true;
+
+            case R.id.action_logout:
+                 MaterialDialog mDialog = new MaterialDialog.Builder ( MainActivity.this)
+                    .setTitle ( "Are you sure , you want to logout ?" )
+                    .setCancelable ( false )
+                    .setPositiveButton ( "Yes",R.drawable.not_verified, new MaterialDialog.OnClickListener () {
+                        @Override
+                        public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                            mAuth.signOut();
+                            Intent loginIntenttt = new Intent ( MainActivity.this,LoginActivity.class );
+                            loginIntenttt.addFlags ( Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+                            startActivity ( loginIntenttt );
+                            finish ();
+                        }
+
+
+                    } )
+                    .setNegativeButton ( "Later", new MaterialDialog.OnClickListener () {
+                        @Override
+                        public void onClick(com.shreyaspatil.MaterialDialog.interfaces.DialogInterface dialogInterface, int which) {
+                            dialogInterface.cancel ();
+                        }
+
+                    } )
+                    .build ();
+
+                // Show Dialog
+                mDialog.show ();
+                return true;
+
+            case R.id.action_how_to_use:
+                Toast.makeText(getApplicationContext(),"Item 3 Selected",Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 
     @Override

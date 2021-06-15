@@ -12,7 +12,9 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.GrowOnLearningInstitute">
-        <activity android:name=".CourseDashBoardforTeachers"></activity>
+        <activity android:name=".GroupChatActivity"></activity>
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".CourseDashBoardforTeachers" />
         <activity android:name=".CourseListActivityforTeachersActivity" />
         <activity android:name=".TeacherdashBoardsActivity" />
         <activity android:name=".CourseDetailsActivity" />

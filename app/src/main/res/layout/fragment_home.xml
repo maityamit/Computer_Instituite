@@ -41,6 +41,7 @@
 
 
         <LinearLayout
+            android:id="@+id/my_course_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -74,6 +75,7 @@
 
 
         <LinearLayout
+            android:id="@+id/my_class_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -105,6 +107,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/my_question_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -136,6 +139,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/my_exam_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -193,6 +197,7 @@
 
 
             <TextView
+                android:id="@+id/my_course_text_front"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -215,6 +220,7 @@
                 android:textSize="16sp"/>
 
             <TextView
+                android:id="@+id/my_course_details_front"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"

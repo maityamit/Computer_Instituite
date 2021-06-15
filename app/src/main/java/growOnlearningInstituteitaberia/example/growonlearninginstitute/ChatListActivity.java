@@ -12,13 +12,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import org.jetbrains.annotations.NotNull;
 
 import growOnlearningInstituteitaberia.example.growonlearninginstitute.ui.course.CourseFragment;
 
@@ -27,8 +34,11 @@ public class ChatListActivity extends AppCompatActivity {
 
     private String chat_list_user;
 
-    private DatabaseReference RootRef;
+    private DatabaseReference RootRef,rootRef;
     private ProgressDialog progressDialog;
+    private LinearLayout linearLayout;
+    private FirebaseAuth mAuth;
+    private String currentUserID,gr_image_link;
     private RecyclerView recyclerView;
 
     @Override
@@ -37,6 +47,15 @@ public class ChatListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat_list);
 
         chat_list_user = getIntent().getExtras().get("Users").toString();
+        rootRef = FirebaseDatabase.getInstance().getReference().child("Users");
+
+        gr_image_link = getIntent().getExtras().get("Image").toString();
+
+        mAuth= FirebaseAuth.getInstance ();
+
+        currentUserID = mAuth.getCurrentUser ().getUid ();
+
+        linearLayout = findViewById(R.id.lin_group_chat);
 
 
 
@@ -51,11 +70,20 @@ public class ChatListActivity extends AppCompatActivity {
 
 
 
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intentnew = new Intent(ChatListActivity.this,GroupChatActivity.class);
+                intentnew.putExtra("GR_ID",currentUserID);
+                intentnew.putExtra("Image",gr_image_link);
+                startActivity(intentnew);
+
+            }
+        });
+
+
         recyclerView.setLayoutManager(new LinearLayoutManager(ChatListActivity.this));
-
-
-
-
 
 
 
@@ -93,6 +121,47 @@ public class ChatListActivity extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 String string = getRef(position).getKey();
+
+                                progressDialog.show();
+
+                                rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NotNull DataSnapshot snapshot) {
+
+                                        if (snapshot.hasChild(currentUserID)) {
+
+                                            Intent intentchat = new Intent(ChatListActivity.this,ChatActivity.class);
+                                            intentchat.putExtra("CHAT_KEY_STUDENT",currentUserID);
+                                            intentchat.putExtra("CHAT_KEY_TEACHERS",string);
+                                            intentchat.putExtra("Sender_Image",model.getImage());
+                                            intentchat.putExtra("Sender_Name",model.getName());
+                                            startActivity(intentchat);
+                                            progressDialog.dismiss();
+
+                                        }
+                                        else {
+
+                                            Intent intentchat = new Intent(ChatListActivity.this,ChatActivity.class);
+                                            intentchat.putExtra("CHAT_KEY_STUDENT",string);
+                                            intentchat.putExtra("CHAT_KEY_TEACHERS",currentUserID);
+                                            intentchat.putExtra("Sender_Image",model.getImage());
+                                            intentchat.putExtra("Sender_Name",model.getName());
+                                            startActivity(intentchat);
+                                            progressDialog.dismiss();
+
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                        progressDialog.dismiss();
+                                    }
+                                });
+
+
+
+
 
                             }
                         });
