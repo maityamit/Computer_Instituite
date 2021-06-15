@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference UserRef;
     private FirebaseAuth mAuth;
     private String currentUserID,Image_Link = "https://firebasestorage.googleapis.com/v0/b/grow-on-computer-center.appspot.com/o/profile%20(2).png?alt=media&token=28a91235-8196-478f-b570-574aed5c7de0";
+    private String User_Name="";
     ImageView User_Image,Edit_Image;
 
     @SuppressLint("CutPasteId")
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,ChatListActivity.class);
                 intent.putExtra("Users","Teachers");
                 intent.putExtra("Image",Image_Link);
+                intent.putExtra("Name",User_Name);
                 startActivity(intent);
             }
         });
@@ -99,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                         String retrieveEmail = dataSnapshot.child ( "Email" ).getValue ().toString ();
                         String retrieveImage = dataSnapshot.child ( "Image" ).getValue ().toString ();
 
+                        User_Name = retrieveUserNAme;
                         Image_Link = retrieveImage;
 
                         User_name.setText(retrieveUserNAme);

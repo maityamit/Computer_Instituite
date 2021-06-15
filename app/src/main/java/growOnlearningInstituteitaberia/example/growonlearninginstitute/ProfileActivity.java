@@ -4,12 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,6 +60,8 @@ public class ProfileActivity extends AppCompatActivity {
         currentUserID = mAuth.getCurrentUser ().getUid ();
         UserRef= FirebaseDatabase.getInstance ().getReference ().child ( hello_banglo);
 
+        ImageView editprofile = findViewById(R.id.edit_profile_name);
+        ImageView numberadd = findViewById(R.id.numberadd_button);
 
         qImageView = findViewById(R.id.profile_not_verified);
 
@@ -130,6 +136,102 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
 
+
+
+        editprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(ProfileActivity.this);
+                alertDialog.setTitle("Set up Your Name");
+                alertDialog.setMessage("Enter your name..");
+                final EditText input = new EditText(ProfileActivity.this);
+                input.setHint("Enter Your Name");
+                alertDialog.setView(input);
+                alertDialog.setPositiveButton("Save",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                                String nameouser = input.getText().toString();
+
+                                if (TextUtils.isEmpty(nameouser))
+                                {
+                                    Toast.makeText(ProfileActivity.this, "Enter your name ..", Toast.LENGTH_SHORT).show();
+                                }
+                                else
+                                {
+                                    progressDialog.show();
+
+                                    mAuth= FirebaseAuth.getInstance ();
+                                    currentUserID = mAuth.getCurrentUser ().getUid ();
+                                    UserRef.child(currentUserID).child("Name").setValue(nameouser);
+                                    dialogInterface.cancel();
+                                    progressDialog.cancel();
+                                }
+
+                            }
+                        });
+                alertDialog.setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                alertDialog.show();
+
+            }
+        });
+
+
+
+
+
+
+        numberadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(ProfileActivity.this);
+                alertDialog.setTitle("Update the Mobile No");
+                alertDialog.setMessage("Enter your mobile number");
+                final EditText input = new EditText(ProfileActivity.this);
+                input.setHint("Enter Your Mobile Number");
+                input.setInputType(InputType.TYPE_CLASS_PHONE);
+                alertDialog.setView(input);
+                alertDialog.setPositiveButton("Save",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                String nameouser = input.getText().toString();
+                                if (TextUtils.isEmpty(nameouser))
+                                {
+                                    Toast.makeText(ProfileActivity.this, "Enter correct mobile no.", Toast.LENGTH_SHORT).show();
+                                }
+                                else
+                                {
+                                    progressDialog.show();
+                                    mAuth= FirebaseAuth.getInstance ();
+                                    currentUserID = mAuth.getCurrentUser ().getUid ();
+                                    UserRef.child(currentUserID).child("MobileNo").setValue(nameouser);
+                                    dialogInterface.cancel();
+                                    progressDialog.cancel();
+                                }
+
+                            }
+                        });
+                alertDialog.setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                alertDialog.show();
+
+
+
+            }
+        });
 
 
     }

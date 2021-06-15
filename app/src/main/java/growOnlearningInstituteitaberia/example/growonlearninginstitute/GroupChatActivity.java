@@ -6,10 +6,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +45,7 @@ import pl.droidsonroids.gif.GifImageView;
 public class GroupChatActivity extends AppCompatActivity {
 
 
-    private String gr_image_link="";
+    private String gr_image_link="",gr_user_name = "";
 
     private RecyclerView recyclerView;
     private FirebaseAuth mAuth;
@@ -57,6 +64,7 @@ public class GroupChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_group_chat);
 
         gr_image_link = getIntent().getExtras().get("Image").toString();
+        gr_user_name = getIntent().getExtras().get("Name").toString();
 
 
 
@@ -157,6 +165,7 @@ public class GroupChatActivity extends AppCompatActivity {
             updatee.put("SenderDate",SaveCurrentData+" - "+saveCurrentTime);
             updatee.put("ReceiverDate","");
             updatee.put("Image",gr_image_link);
+            updatee.put("Name",gr_user_name);
             mRef.child(key).updateChildren(updatee).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
@@ -222,9 +231,19 @@ public class GroupChatActivity extends AppCompatActivity {
 
                             Picasso.get ().load ( model.getImage() ).placeholder ( R.drawable.image_placeholder ).error ( R.drawable.image_placeholder).into ( holder.imageView );
 
+
+
+                            String hy = String.valueOf(model.getName()).toString();
+
+                            String st = String.valueOf(model.getName())+" :\n"+String.valueOf(model.getText());
+                            SpannableString ss = new SpannableString(st);
+                            StyleSpan boldSpan = new StyleSpan(Typeface.BOLD);
+                            ss.setSpan(boldSpan, 0, hy.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+
                             holder.send.setVisibility(View.GONE);
                             holder.s_date.setVisibility(View.GONE);
-                            holder.receive.setText(model.getText());
+                            holder.receive.setText(ss);
                             holder.r_date.setText(model.getSenderDate());
                         }
 

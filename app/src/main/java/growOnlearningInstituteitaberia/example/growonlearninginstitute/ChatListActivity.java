@@ -38,7 +38,7 @@ public class ChatListActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private LinearLayout linearLayout;
     private FirebaseAuth mAuth;
-    private String currentUserID,gr_image_link;
+    private String currentUserID,gr_image_link,gr_user_name;
     private RecyclerView recyclerView;
 
     @Override
@@ -50,6 +50,7 @@ public class ChatListActivity extends AppCompatActivity {
         rootRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
         gr_image_link = getIntent().getExtras().get("Image").toString();
+       gr_user_name = getIntent().getExtras().get("Name").toString();
 
         mAuth= FirebaseAuth.getInstance ();
 
@@ -65,6 +66,7 @@ public class ChatListActivity extends AppCompatActivity {
         progressDialog.setContentView ( R.layout.loading );
         progressDialog.setTitle ( "Please Wait..." );
         progressDialog.setCanceledOnTouchOutside ( false );
+        progressDialog.setCancelable(false);
         progressDialog.setMessage ( "Tips: Please Check your Internet or Wi-fi Connection" );
         recyclerView = findViewById(R.id.ChatListRecycle);
 
@@ -77,6 +79,7 @@ public class ChatListActivity extends AppCompatActivity {
                 Intent intentnew = new Intent(ChatListActivity.this,GroupChatActivity.class);
                 intentnew.putExtra("GR_ID",currentUserID);
                 intentnew.putExtra("Image",gr_image_link);
+                intentnew.putExtra("Name",gr_user_name);
                 startActivity(intentnew);
 
             }

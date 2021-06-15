@@ -21,6 +21,7 @@ public class TeacherdashBoardsActivity extends AppCompatActivity {
     private TextView chat,upcoming,myProfile;
     private FirebaseAuth mAuth;
     private DatabaseReference UserRef;
+    private String Namee= "";
     private String currentUserID,Image_Link = "https://firebasestorage.googleapis.com/v0/b/grow-on-computer-center.appspot.com/o/profile%20(2).png?alt=media&token=28a91235-8196-478f-b570-574aed5c7de0";;
 
     @Override
@@ -47,6 +48,7 @@ public class TeacherdashBoardsActivity extends AppCompatActivity {
                 Intent intentl = new Intent(TeacherdashBoardsActivity.this,ChatListActivity.class);
                 intentl.putExtra("Users","Users");
                 intentl.putExtra("Image",Image_Link);
+                intentl.putExtra("Name",Namee);
                 startActivity(intentl);
             }
         });
@@ -79,8 +81,10 @@ public class TeacherdashBoardsActivity extends AppCompatActivity {
 
 
                         String retrieveImage = dataSnapshot.child ( "Image" ).getValue ().toString ();
+                        String retrieveName = dataSnapshot.child ( "Name" ).getValue ().toString ();
 
                         Image_Link = retrieveImage;
+                        Namee = retrieveName;
 
 
 

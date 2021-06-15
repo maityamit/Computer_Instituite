@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/dida"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
@@ -124,6 +125,7 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/edit_profile_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -237,6 +239,7 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/numberadd_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

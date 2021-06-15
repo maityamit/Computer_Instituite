@@ -2,19 +2,20 @@ package growOnlearningInstituteitaberia.example.growonlearninginstitute;
 
 public class Contact {
 
-    private String Text,Sender,SenderDate,ReceiverDate,Image;
+    private String Text,Sender,SenderDate,ReceiverDate,Image,Name;
 
     public Contact()
     {
 
     }
 
-    public Contact(String TEXT, String SENDER, String SenderDate, String ReceiverDate,String Image) {
+    public Contact(String TEXT, String SENDER, String SenderDate, String ReceiverDate,String Image,String Name) {
         this.Text = TEXT;
         this.Sender = SENDER;
         this.SenderDate = SenderDate;
         this.ReceiverDate = ReceiverDate;
         this.Image = Image;
+        this.Name = Name;
 
 
 
@@ -59,5 +60,13 @@ public class Contact {
 
     public void setImage(String image) {
         Image = image;
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
     }
 }

@@ -12,7 +12,7 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.GrowOnLearningInstitute">
-        <activity android:name=".GroupChatActivity"></activity>
+        <activity android:name=".GroupChatActivity"/>
         <activity android:name=".ChatActivity" />
         <activity android:name=".CourseDashBoardforTeachers" />
         <activity android:name=".CourseListActivityforTeachersActivity" />
@@ -21,14 +21,17 @@
         <activity android:name=".ChatListActivity" />
         <activity android:name=".ForgotPassword" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".SpalshActivity">
+
+        <activity android:name=".AuthtestActivity">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".AuthtestActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity
